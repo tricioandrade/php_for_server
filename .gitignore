@@ -1,0 +1,16 @@
+
+*.ttf
+*.png
+*.jpg
+*.webp
+*.svg
+*.woff
+*.woff2
+*.scss
+*.md
+*.less
+*.map
+app/view/img/
+.idea/
+*.xml
+vendor/

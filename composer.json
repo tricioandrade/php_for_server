@@ -1,0 +1,28 @@
+{
+    "name": "tricioandrade/api",
+    "description": "API para Php para cosumo de banco de dados SQL",
+    "minimum-stability": "stable",
+    "license": "proprietary",
+    "authors": [
+      {
+        "name": "Patricio Bento Andrade",
+        "email": "tricioandrade@outlook.com",
+        "role":  "Developer",
+        "homepage": "https://github.com/tricioandrade/outonoapi"
+      }
+    ],
+    "config": {
+      "vendor-dir": "vendor"
+    },
+    "autoload": {
+      "psr-4": {
+        "app\\": "app/"
+      }
+    },
+    "require": {
+      "ext-pdo": "*",
+        "league/commonmark": "^2.0",
+      "ext-sodium": "*",
+      "ext-mbstring": "*"
+    }
+  }

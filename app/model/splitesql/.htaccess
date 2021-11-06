@@ -1,0 +1,5 @@
+Options -Indexes
+<Files ~ "\.(json|phar|lock|php|pdf)">
+    Order deny,allow
+    deny from all
+</Files>
