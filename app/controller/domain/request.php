@@ -36,7 +36,7 @@ class request extends authentication
                         endif;
                     }
                     
-                    #arrayKey($obj[0], $param);
+                    arrayKey($obj[0], $param);
                 break;
         endswitch;
     }
