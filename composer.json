@@ -1,5 +1,5 @@
 {
-    "name": "tricioandrade/api",
+    "name": "tricioandrade/php_for_server",
     "description": "API para Php para cosumo de banco de dados SQL",
     "minimum-stability": "stable",
     "license": "proprietary",
@@ -8,7 +8,7 @@
         "name": "Patricio Bento Andrade",
         "email": "tricioandrade@outlook.com",
         "role":  "Developer",
-        "homepage": "https://github.com/tricioandrade/outonoapi"
+        "homepage": "https://github.com/tricioandrade/php_for_server"
       }
     ],
     "config": {
