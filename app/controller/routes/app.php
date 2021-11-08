@@ -3,7 +3,6 @@
 
 namespace app\controller\routes;
 
-use app\controller\access\rules;
 
 class app extends controller
 {
@@ -11,7 +10,6 @@ class app extends controller
     {
 
         $this->parseURL();
-        if(rules::createSession()):
             $this->setNamespace($this->getDefaultNamespace());
             $this->setFile($this->getDefaultRoute().$this->getController().'.php');
 
@@ -32,6 +30,6 @@ class app extends controller
                 $this->_default();
                 call_user_func_array([$this->getClass(), $this->getMethod()], $this->getParam());
             endif;    
-        endif;
+        
     }
 }
