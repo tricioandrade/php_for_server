@@ -10,28 +10,25 @@
 
 namespace app\model\splitesql;
 
-class  Query extends SGBD
+class  Query extends SGBD implements consts
 {
-
-    const fetch = 'fetch';
-    const count = 'count';
-    const create = 'CREATE';
-    const update = 'UPDATE';
-    const delete = 'DELETE';
-    const select = 'SELECT';
-    const insert = 'insert';
-    const where = 'WHERE';
-    const set = 'SET';
-    const limit = 'LIMIT';
-    const equal = '=';
 
     private static $sql;
     private static $stmt;
 
     private static $rows;
     private static $values;
-    private static $table;
     
+    private static $check_query_result = false;
+    
+    /**
+     * @return bool
+     */
+    public static function is_true(){
+        return self::$check_query_result;
+    }
+
+
     /**
      * @return mixed
      */
@@ -44,33 +41,6 @@ class  Query extends SGBD
      */
     private static function getValues(){
         return self::$values;
-    }
-
-    /**
-     * @return bool
-     */
-    public static function is_true(){
-        return self::$check_query_result;
-    }
-
-    /**
-     * @param bool $state
-     */
-    private static function setQueryResult(bool $state){
-        self::$check_query_result = $state;
-    }
-
-    private static $check_query_result = false;
-
-    /*
-     * @encode array to Json
-     * @return json array
-     */
-    private static function encode_json(array $array){
-        $array = str_replace('\\',' ',json_encode($array, JSON_UNESCAPED_UNICODE));
-        $array = str_replace('  ', '/', $array);
-        $array = str_replace(' /', '/', $array);
-        return $array;
     }
 
     /**
@@ -88,10 +58,29 @@ class  Query extends SGBD
         if (is_object($values)) $values = get_object_vars($values);
         self::$values = str_replace('"', '\'' , str_replace(['[',']', '{','}'],  '', self::encode_json(array_values($values))));
     }
+    
+    /**
+     * @param bool $state
+     */
+    private static function setQueryResult(bool $state){
+        self::$check_query_result = $state;
+    }
+
+    /*
+     * @encode array to Json
+     * @return json array
+     */
+    private static function encode_json(array $array){
+        $array = str_replace('\\',' ',json_encode($array, JSON_UNESCAPED_UNICODE));
+        $array = str_replace('  ', '/', $array);
+        $array = str_replace(' /', '/', $array);
+        return $array;
+    }
+
 
     public static function sql_insert(string $table, $param){
         self::setRows($param); self::setValues($param);
-        self::$sql = self::insert." into {$table} (".self::getRows().") values (".self::getValues().")";
+        self::$sql = consts::insert." into {$table} (".self::getRows().") values (".self::getValues().")";
 
         self::$stmt = Connection::connect()->prepare(self::$sql);
         if (self::$stmt->execute()):
@@ -102,26 +91,23 @@ class  Query extends SGBD
   
     /**
      * @Model static function
-     * @param string $ddl
-     * @param array $rows
-     * @param array $values
-     * @param string|null $table
+     * @param string $SQL
      * @param string|null $return
-     * @return array|bool|int
+     * @return array|bool|int|null
      */
 
     public static function sql_query(string $SQL, string $return = null){
         self::$sql = $SQL;
         self::$stmt = Connection::connect()->prepare(self::$sql);
         if (self::$stmt->execute()):
-            if (false !== stripos($SQL, self::create)) self::setQueryResult(true);
-            if (false !== stripos($SQL, self::update)) self::setQueryResult(true);
-            if (false !== stripos($SQL, self::delete)) self::setQueryResult(true);
-            if (false !== stripos($SQL, self::select)):
-                if ($return == self::fetch || $return == null):
+            if (false !== stripos($SQL, consts::create)) self::setQueryResult(true);
+            if (false !== stripos($SQL, consts::update)) self::setQueryResult(true);
+            if (false !== stripos($SQL, consts::delete)) self::setQueryResult(true);
+            if (false !== stripos($SQL, consts::select)):
+                if ($return == consts::fetch || $return == null):
                     self::setQueryResult(true);
                     return self::$stmt->fetchAll(\PDO::FETCH_OBJ);
-                elseif ($return == self::count):
+                elseif ($return == consts::count):
                     self::setQueryResult(true);
                     return self::$stmt->rowCount();
                 endif;

@@ -3,7 +3,7 @@
 
 namespace app\model\splitesql;
 
-class SGBD extends Connection
+class SGBD extends Connection implements consts
 {
     /***
      * @author Patricio Bento Andrade

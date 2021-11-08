@@ -4,17 +4,18 @@
 namespace app\model\splitesql;
 
 
-class consts
+abstract class consts
 {
-    public const count = 'count';
-    public const create = 'create';
-    public const update = 'update';
-    public const delete = 'delete';
-    public const select = 'select';
-    public const insert = 'insert';
-    public const fetch = 'fetch';
-    public const set = 'fetch';
-    public const limit = 'fetch';
-    public const equal = 'fetch';
+    const count = 'count';  
+    const fetch = 'fetch';
+    const create = 'CREATE';
+    const update = 'UPDATE';
+    const delete = 'DELETE';
+    const select = 'SELECT';
+    const insert = 'insert';
+    const where = 'WHERE';
+    const set = 'SET';
+    const limit = 'LIMIT';
+    const equal = '=';
 
 }
