@@ -17,9 +17,9 @@ class Inspection extends SGBD
      }
 
     #Empty and Null Variables Verifying
-    public static function is_not_empty(array $variaveis):  bool{
-        for ($i = 0; $i < count($variaveis); $i++):
-            if (in_array( '', $variaveis) || empty($variaveis[$i]) || $variaveis[$i] == null):
+    public static function is_not_empty(array $array):  bool{
+        for ($i = 0; $i < count($array); $i++):
+            if (in_array( '', $array) || empty($array[$i]) || $array[$i] == null):
                 return false;
             else:
                 return true;

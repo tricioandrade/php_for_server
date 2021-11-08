@@ -89,10 +89,6 @@ class  Query extends SGBD
         self::$values = str_replace('"', '\'' , str_replace(['[',']', '{','}'],  '', self::encode_json(array_values($values))));
     }
 
-    public static function sql_select(){
-
-    }
-
     public static function sql_insert(string $table, $param){
         self::setRows($param); self::setValues($param);
         self::$sql = self::insert." into {$table} (".self::getRows().") values (".self::getValues().")";
@@ -114,7 +110,7 @@ class  Query extends SGBD
      * @return array|bool|int
      */
 
-    public static function SplitSQL(string $SQL, string $table = null, string $return = null){
+    public static function sql_query(string $SQL, string $return = null){
         self::$sql = $SQL;
         self::$stmt = Connection::connect()->prepare(self::$sql);
         if (self::$stmt->execute()):
