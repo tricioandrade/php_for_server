@@ -3,8 +3,6 @@
 
 namespace app\controller\routes;
 
-use app\controller\access\rules;
-
 class app extends controller
 {
     public function __construct()

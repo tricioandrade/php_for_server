@@ -5,8 +5,7 @@ namespace app\controller\domain;
 
 
 use app\controller\access\authentication;
-use app\model\splitesql\Query;
-use app\model\splitesql\SGBD;
+use app\model\splitesql\Query; 
 
 class request extends authentication
 {
