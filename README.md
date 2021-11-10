@@ -1,2 +1,2 @@
 # php_for_server
-api php para requisições sql
+API de controle de acesso com o banco de dados
