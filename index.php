@@ -18,7 +18,5 @@ const password = '';
 const charset = 'utf8';
 
 consts::_defined();
-
-
 new RoutesApp();
 
