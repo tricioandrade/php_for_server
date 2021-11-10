@@ -1,22 +1,19 @@
 {
     "name": "tricioandrade/php_for_server",
-    "description": "API para Php para cosumo de banco de dados SQL",
-    "minimum-stability": "stable",
+    "description": "API de controle de acesso com o banco de dados",
+    "type": "project",
     "license": "proprietary",
-    "authors": [
-      {
-        "name": "Patricio Bento Andrade",
-        "email": "tricioandrade@outlook.com",
-        "role":  "Developer",
-        "homepage": "https://github.com/tricioandrade/php_for_server"
-      }
-    ],
-    "config": {
-      "vendor-dir": "vendor"
-    },
     "autoload": {
-      "psr-4": {
-        "app\\": "app/"
-      }
-    }
-  }
+        "psr-4": {
+            "app\\": "app/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Patricio Andrade",
+            "email": "tricioandrade@outlook.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
