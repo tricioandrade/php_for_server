@@ -18,11 +18,5 @@
       "psr-4": {
         "app\\": "app/"
       }
-    },
-    "require": {
-      "ext-pdo": "*",
-        "league/commonmark": "^2.0",
-      "ext-sodium": "*",
-      "ext-mbstring": "*"
     }
   }
