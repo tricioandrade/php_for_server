@@ -10,7 +10,6 @@
 *.md
 *.less
 *.map
-app/view/img/
 .idea/
 *.xml
 vendor/
