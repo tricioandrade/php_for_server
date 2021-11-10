@@ -40,4 +40,10 @@ class request extends authentication
         endswitch;
     }
 
+    public function blank()
+    {
+        header('Content-type: application/json');
+        print_r(null);
+    }
+
 }

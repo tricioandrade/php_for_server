@@ -9,10 +9,8 @@ class app extends controller
     {
 
         $this->parseURL();
-        if(rules::createSession()):
             $this->setNamespace($this->getDefaultNamespace());
             $this->setFile($this->getDefaultRoute().$this->getController().'.php');
-
             if(file_exists('./'.$this->getFile())):
                 $this->setClass($this->getController());
                 if(!empty($this->getMethod())):
@@ -29,7 +27,6 @@ class app extends controller
             else:
                 $this->_default();
                 call_user_func_array([$this->getClass(), $this->getMethod()], $this->getParam());
-            endif;    
-        endif;
+            endif;  
     }
 }
