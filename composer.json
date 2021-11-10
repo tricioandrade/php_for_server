@@ -11,7 +11,9 @@
     "authors": [
         {
             "name": "Patricio Andrade",
-            "email": "tricioandrade@outlook.com"
+            "email": "tricioandrade@outlook.com",
+            "role":  "Developer",
+            "homepage": "https://github.com/tricioandrade/php_for_server"
         }
     ],
     "minimum-stability": "dev",
