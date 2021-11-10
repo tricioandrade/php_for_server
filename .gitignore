@@ -14,3 +14,4 @@ app/view/img/
 .idea/
 *.xml
 vendor/
+app/model/splitesql/
