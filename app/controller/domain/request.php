@@ -9,8 +9,6 @@ use app\model\splitesql\Query;
 
 class request extends authentication
 {
-    public array $requests_types = ['GET', 'POST', 'PUT', 'DELETE', 'REMOVE'];
-    
     public function setConnection(): void
     {      
         new \app\model\splitesql\SGBD(host, user, charset, database, password);
