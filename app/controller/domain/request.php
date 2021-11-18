@@ -5,13 +5,14 @@ namespace app\controller\domain;
 
 
 use app\controller\access\authentication;
-use app\model\splitesql\Query; 
+use app\model\splitesql\Query;
+use app\model\splitesql\SGBD;
 
 class request extends authentication
 {
     public function setConnection(): void
     {      
-        new \app\model\splitesql\SGBD(host, user, charset, database, password);
+        new SGBD(host, user, charset, database, password);
     }
 
     public function jsdata($param = '')
@@ -34,6 +35,7 @@ class request extends authentication
                     }
                     
                     arrayKey($obj[0], $param);
+                    var_dump($json);
                 break;
         endswitch;
     }
