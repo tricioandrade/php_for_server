@@ -17,25 +17,26 @@ class request extends authentication
 
     public function jsdata($param = '')
     {
+        function arrayKey($obj, $param){
+            if(!empty($param) && is_array($obj)):
+                Query::sql_insert("${param}", $obj);
+                if(Query::is_true())
+                    print_r('true');
+                exit;
+            endif;
+        }
+
         header("Content-Type: application/json, charset=utf8");
+
         switch ($_SERVER['REQUEST_METHOD']):
             case 'POST':
                     $this->setConnection();
-                    $json = file_get_contents('php://input'); 
-                    var_dump($json);
-                    $obj = json_decode($json, JSON_OBJECT_AS_ARRAY);
-
-                    function arrayKey($obj, $param){
-                        if(!empty($param) && is_array($obj)):
-                            Query::sql_insert("${param}", $obj);
-                            if(Query::is_true()) 
-                                print_r('true');
-                                    exit;
-                        endif;
-                    }
-                    
-                    arrayKey($obj[0], $param);
-                    var_dump($json);
+                    $json = file_get_contents('php://input');
+                    if(!empty($json)):
+                        $obj = json_decode($json);
+                        arrayKey($obj, $param);
+                        echo($json);
+                    endif;
                 break;
         endswitch;
     }
