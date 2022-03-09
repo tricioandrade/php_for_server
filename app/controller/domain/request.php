@@ -35,8 +35,12 @@ class request extends authentication
                     if(!empty($json)):
                         $obj = json_decode($json);
                         arrayKey($obj, $param);
-                        echo($json);
                     endif;
+
+                echo(json_encode($json));
+                break;
+            case 'GET':
+
                 break;
         endswitch;
     }
